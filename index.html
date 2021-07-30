@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>「メビリンス」ポートフォリオ.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E3%83%A1%E3%83%93%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA---omit-in-toc"><strong>「メビリンス」ポートフォリオ</strong><!-- omit in toc --></h1>
+<h2 id="%E6%B0%8F%E5%90%8D%E7%B1%B3%E5%9C%B0-%E7%9C%9F%E5%A4%AE">氏名：米地 真央</h2>
+<br>
+<img src = "images/タイトル.png" ald = "タイトル" width = "864" height = "486">
+<br>
+<hr>
+<h1 id="%E7%9B%AE%E6%AC%A1">目次</h1>
+<ul>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+<li><a href="#1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. 作品概要</a></li>
+<li><a href="#2-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">2. ゲーム内容</a></li>
+<li><a href="#3-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">3. 操作説明</a>
+<ul>
+<li><a href="#31-%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89">3.1. キーボード</a></li>
+<li><a href="#32-xbox-360-%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC">3.2. Xbox 360 コントローラー</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%8A%80%E8%A1%93%E7%B4%B9%E4%BB%8B">4. 技術紹介</a>
+<ul>
+<li><a href="#41-%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E8%BC%AA%E3%81%AE%E4%B8%8A%E3%81%AE%E7%A7%BB%E5%8B%95">4.1. メビウスの輪の上の移動</a></li>
+<li><a href="#42-%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A8%E3%83%AC%E3%82%A4%E3%81%AE%E4%BA%A4%E5%B7%AE%E7%82%B9%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B">4.2. メッシュとレイの交差点を求める</a></li>
+<li><a href="#43-obb%E5%90%8C%E5%A3%AB%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A">4.3. OBB同士の当たり判定</a></li>
+<li><a href="#44-%E3%83%AC%E3%83%99%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">4.4. レベルデータの読み込み</a></li>
+<li><a href="#45-%E3%83%AF%E3%82%A4%E3%83%97">4.5. ワイプ</a></li>
+<li><a href="#46-%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E3%83%9E%E3%83%83%E3%83%97%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9">4.6. キューブマップスカイボックス</a></li>
+<li><a href="#47-%E5%B7%9D%E7%80%AC%E5%BC%8F%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">4.7. 川瀬式ブルーム</a></li>
+<li><a href="#48-vsm%E5%88%86%E6%95%A3%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6%E3%83%9E%E3%83%83%E3%83%97">4.8. VSM（分散シャドウマップ）</a></li>
+<li><a href="#49-%E3%82%A2%E3%82%A6%E3%83%88%E3%83%A9%E3%82%A4%E3%83%B3%E6%8F%8F%E7%94%BB">4.9. アウトライン描画</a></li>
+<li><a href="#410-%E3%83%AA%E3%83%A0%E3%83%A9%E3%82%A4%E3%83%88%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%81%93%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E5%B0%82%E7%94%A8%E3%81%AE%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">4.10. リムライトを使ったこのゲーム専用のシェーディング</a></li>
+</ul>
+</li>
+<li><a href="#5-%E3%82%B2%E3%83%BC%E3%83%A0%E7%9A%84%E3%81%AB%E3%81%93%E3%81%A0%E3%82%8F%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D">5. ゲーム的にこだわったところ</a>
+<ul>
+<li><a href="#51-%E9%80%8F%E6%98%8E%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E8%A1%A8%E7%8F%BE">5.1 透明アイテムの表現</a></li>
+<li><a href="#52-%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E8%BC%AA%E3%81%AE%E4%B8%8A%E3%81%A7%E3%81%AE%E7%A7%BB%E5%8B%95%E4%BB%A5%E5%A4%96%E3%81%AE%E5%8B%95%E3%81%8D">5.2 メビウスの輪の上での移動以外の動き</a></li>
+<li><a href="#53-%E5%A4%9A%E5%BD%A9%E3%81%AA%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF">5.3 多彩なギミック</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. 作品概要</h1>
+<ul>
+<li>タイトル
+<ul>
+<li>メビリンス</li>
+</ul>
+</li>
+<li>学校
+<ul>
+<li>河原電子ビジネス専門学校</li>
+</ul>
+</li>
+<li>制作人数
+<ul>
+<li>3人</li>
+</ul>
+</li>
+<li>制作期間
+<ul>
+<li>2021年2月～2021年5月</li>
+</ul>
+</li>
+<li>ゲームジャンル
+<ul>
+<li>パズルゲーム</li>
+</ul>
+</li>
+<li>プレイ人数
+<ul>
+<li>1人</li>
+</ul>
+</li>
+<li>対応ハード
+<ul>
+<li>PC Windows10
+<ul>
+<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">キーボード</label></li>
+<li><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">Xbox 360 コントローラー</label></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用言語
+<ul>
+<li>C++</li>
+<li>HLSL</li>
+</ul>
+</li>
+<li>開発環境
+<ul>
+<li>エンジン
+<ul>
+<li>学校内製の簡易エンジン(DirectX12)</li>
+</ul>
+</li>
+<li>プログラム
+<ul>
+<li>Visual Studio 2019</li>
+</ul>
+</li>
+<li>3Dモデル
+<ul>
+<li>3ds MAX</li>
+</ul>
+</li>
+<li>エフェクト
+<ul>
+<li>Effeckseer</li>
+</ul>
+</li>
+<li>画像
+<ul>
+<li>Adobe Photoshop</li>
+</ul>
+</li>
+<li>バージョン管理
+<ul>
+<li>Git hub</li>
+</ul>
+</li>
+<li>タスク管理
+<ul>
+<li>Redmine</li>
+</ul>
+</li>
+<li>連絡
+<ul>
+<li>Slack</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<hr>
+<h1 id="2-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">2. ゲーム内容</h1>
+<p> 男性キャラクターがメビウスの輪のステージで、アイテムを裏側に投げて性質を反転させ、その性質を使ってゴールを目指すパズルゲーム。</p>
+<br>
+<img src = "images/ゲーム概要.png" ald = "ゲーム概要" width = "512" height = "512">
+<br>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<hr>
+<h1 id="3-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">3. 操作説明</h1>
+<h2 id="31-%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89">3.1. キーボード</h2>
+<ul>
+<li>ステージ選択画面、ポーズ画面
+<ul>
+<li>Zキー：決定</li>
+<li>Xキー：戻る</li>
+<li>十字キー：選択カーソルの移動</li>
+</ul>
+</li>
+<li>ゲーム画面
+<ul>
+<li>Zキー：物を持つ（持った状態の場合→反対側に投げる）</li>
+<li>Xキー：物を持った状態で→その場に置く</li>
+<li>SHIFTキー：ダッシュ</li>
+<li>ESCAPEキー：ポーズ画面を開く、閉じる</li>
+<li>十字キー：移動</li>
+</ul>
+</li>
+</ul>
+<h2 id="32-xbox-360-%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC">3.2. Xbox 360 コントローラー</h2>
+<ul>
+<li>ステージ選択画面、ポーズ画面
+<ul>
+<li>Aボタン：決定</li>
+<li>Bボタン：戻る</li>
+<li>左スティック：選択カーソルの移動</li>
+</ul>
+</li>
+<li>ゲーム画面
+<ul>
+<li>Aボタン：物を持つ（持った状態の場合→反対側に投げる）</li>
+<li>Bボタン：物を持った状態で→その場に置く</li>
+<li>Rボタン：ダッシュ</li>
+<li>STARTボタン：ポーズ画面を開く、閉じる</li>
+<li>左スティック：移動</li>
+</ul>
+</li>
+</ul>
+<br>
+<img src = "images/操作説明.png" ald = "操作説明" width = "768" height = "384">
+<br>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<hr>
+<h1 id="4-%E6%8A%80%E8%A1%93%E7%B4%B9%E4%BB%8B">4. 技術紹介</h1>
+<h2 id="41-%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E8%BC%AA%E3%81%AE%E4%B8%8A%E3%81%AE%E7%A7%BB%E5%8B%95">4.1. メビウスの輪の上の移動</h2>
+<p> メビウスの輪の上を移動するには、重力の方向も移動する方向も常に一定ではないので、普通の移動では難しい。よって私は<strong>ウェイポイント</strong>を使ってメビウスの輪の上の移動を実装した。ここでいうウェイポイントとは位置情報と回転情報を保持したデータのことを指す。そのウェイポイントをメビウスの輪の上に配置する。このゲームでは32個のウェイポイントが配置されている。</p>
+<br>
+<img src = "images/ウェイポイント.png" ald =  "ウェイポイント" width = "496" height = "432">
+<br>
+<p>そして以下の手順で移動する。</p>
+<ol>
+<li>ウェイポイントのデータを順番に番号を割り振って読み込む。</li>
+<li>プレイヤーが何番のウェイポイントと何番のウェイポイントの間にあるか調べる。</li>
+<li>プレイヤーが右に進むときは右にあるウェイポイントにむかって進む。</li>
+<li>プレイヤーの回転は、左右のウェイポイントの回転情報を球面線形補完をして計算する。</li>
+<li>ウェイポイントを通り過ぎたら次のウェイポイントへ番号を変更する。</li>
+</ol>
+<p> しかし、この方法ではウェイポイントの間を直線的に移動することしかできない。さらに地面からも離れている。そうではなくメビウスの輪に沿って移動して欲しい。</p>
+<br>
+<img src = "images/ウェイポイント_当たり判定なし_横矢印.png" ald = "ウェイポイント_当たり判定なし_横矢印" width = "750" height = "421">
+<br>
+<p> そのため、下向きのベクトルを補完済みの回転情報で回転させ、その方向にプレイヤーからレイを飛ばし、レイとメビウスの輪の交差点を求め（次項の<a href="#42-%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A8%E3%83%AC%E3%82%A4%E3%81%AE%E4%BA%A4%E5%B7%AE%E7%82%B9%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B"><em>4.2.メッシュとレイの交差点を求める</em></a>で説明）、その座標をプレイヤーの座標とすることでメビウスの輪に沿った移動にする。</p>
+<br>
+<img src = "images/ウェイポイント_当たり判定なし_縦矢印.png" ald = "ウェイポイント_当たり判定なし_縦矢印" width = "750" height = "421">
+<br>
+<img src = "images/ウェイポイント_当たり判定あり.png" ald = "ウェイポイント_当たり判定あり" width = "750" height = "421">
+<br>
+<p>つまり最終的な手順は</p>
+<ol>
+<li>ウェイポイントのデータを順番に番号を割り振って読み込む。</li>
+<li>プレイヤーが何番のウェイポイントと何番のウェイポイントの間にあるか調べる。</li>
+<li>プレイヤーが右に進むときは右にあるウェイポイントにむかって進む。</li>
+<li>プレイヤーの回転は、左右のウェイポイントの回転情報を球面線形補完をして計算する。</li>
+<li>プレイヤーから下向きにレイを飛ばしてメビウスの輪との交差点をプレイヤーの座標にする。</li>
+<li>ウェイポイントを通り過ぎたら次のウェイポイントへ番号を変更する。</li>
+</ol>
+<p>となる。</p>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="42-%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E3%81%A8%E3%83%AC%E3%82%A4%E3%81%AE%E4%BA%A4%E5%B7%AE%E7%82%B9%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B">4.2. メッシュとレイの交差点を求める</h2>
+<p> メッシュとレイの交差点を求めるには以下の処理手順で計算する。</p>
+<ol>
+<li>三角形ポリゴンを含む無限平面とレイ（線分）の交差判定。</li>
+<li>交差している座標の計算。</li>
+<li>2で求めた交差点の座標が三角形の中にあるかどうか判定。</li>
+<li>メッシュの三角形ポリゴン全てに1~3の処理を行う。その中で、複数の交差点が存在したら、レイの始点から一番近い座標を交差点とする。</li>
+<li>交差点が存在しなければ、交差していない。</li>
+</ol>
+<p>それぞれ手順を詳しくみていく。</p>
+<ol>
+<li>
+<p><strong>「三角形ポリゴンを含む無限平面と線分（レイ）の交差判定。」</strong></p>
+<ol>
+<li>
+<p>メッシュから三角形ポリゴンを一つ取り出して、三つの頂点の内どれか一つの頂点の座標、その頂点の法線（正規化済み）、レイの始点、レイの終点の四つのデータを使う。</p>
+<br>
+<img src = "images/無限平面とレイ.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>頂点座標からレイの始点へのベクトル<strong>vertToStartVec</strong>、頂点座標からレイの終点へのベクトル<strong>vertToEndVec</strong>の二つのベクトルを求め、それぞれ正規化しておく。</p>
+<br>
+<img src = "images/無限平面とレイ1.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>頂点の法線と正規化されたvertToStartVecの内積<strong>normAndStartDot</strong>と、頂点の法線と正規化されたvertToEndVecの内積<strong>normAndEndDot</strong>を求める。</p>
+<br>
+<img src = "images/無限平面とレイ2.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>normAndStartDotとnormAndEndDotの<em>積が負の値だったら</em>無限平面と交差しているので次の工程へ。0以上の値だったら交差していないので次の三角形ポリゴンを調べる。</p>
+<ul>
+<li>二つの内積の値の組み合わせが正と負のときに、無限平面とレイが交差してる。それ以外の正と正、負と負のときは交差していない。</li>
+</ul>
+<br>
+<img src = "images/無限平面とレイ3.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+<img src = "images/無限平面とレイ4.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+<img src = "images/無限平面とレイ5.jpg" ald = "無限平面とレイ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>「交差している座標の計算。」</strong></p>
+<ol>
+<li>
+<p>無限平面とレイの交点とレイを使って図のような三角形を二つ作る。この二つの三角形は相似のため対応する辺の比が等しい。レイの始点と終点の座標は分かっているので、辺の比が分かれば無限平面とレイの交点の座標が求めることができる。</p>
+<br>
+<img src = "images/交差している座標の計算1.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+<p>辺の比を求めるために下の図の場所の辺の長さを調べる。</p>
+ <br>
+ <img src = "images/交差している座標の計算2.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>辺の長さを調べるために、まず三角形のどれか一つの頂点座標からレイの始点へのベクトルと<strong>vertToStartVec</strong>、頂点座標からレイの終点へのベクトル<strong>vertToEndVec</strong>の二つのベクトルを求める。今回は正規化しない。そして反転した頂点の法線も求めておく。</p>
+<br>
+<img src = "images/交差している座標の計算3.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>頂点の法線とvertToStartVecの内積<strong>normAndStartDot</strong>と、反転した頂点の法線とvertToEndVecの内積<strong>normAndEndDot</strong>を求める。これで頂点の法線に射影したvertToStartVecの長さと、反転した頂点の法線に射影したvertToEndVecの長さを求めることができる。</p>
+<br>
+<img src = "images/交差している座標の計算4.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>この二つの長さは、図の位置の辺の長さと等しい。つまり、この二つの三角形の相似比は<strong>normAndStartDot : normAndEndDot</strong>になる。</p>
+<br>
+<img src = "images/交差している座標の計算5.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>相似比が分かったので、レイの始点から終点へのベクトル<strong>startToEndVec</strong>を求めて normAndStartDot / (normAndStartDot + normAndEndDot) を掛けるとレイの始点から交点までのベクトル<strong>startToIntersectVec</strong>が求まる。</p>
+<br>
+<img src = "images/交差している座標の計算6.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>レイの始点とstartToIntersectVecの和が無限平面とレイの交差点の座標になる。</p>
+<br>
+<img src = "images/交差している座標の計算7.jpg" ald = "交差している座標の計算" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>「2で求めた交差点の座標が三角形の中にあるかどうか判定。」</strong></p>
+<ol>
+<li>
+<p>今までは三角形ポリゴンを真横から見て考えていたが、次は真上から見て考える。2で求めた交差点の座標と、三角形ポリゴンの頂点座標三つのデータを使う。</p>
+<br>
+<img src = "images/三角形の中にあるか1.jpg" ald = "三角形の中にあるか" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>三角形の頂点それぞれから無限平面とレイの交差点へのベクトル<strong>vert1~3ToIntersectVec</strong>を求める。そして三角形を時計回りに回るように、頂点1から頂点2へのベクトル<strong>vert1ToVert2Vec</strong>、頂点2から頂点3へのベクトル<strong>vert2ToVert3Vec</strong>、頂点3から頂点0へのベクトル<strong>vert3ToVert1Vec</strong>を求める。</p>
+<br>
+<img src = "images/三角形の中にあるか2.jpg" ald = "三角形の中にあるか" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>三角形の頂点それぞれから伸びている二つベクトルを、終点が交点の方のベクトル（vert1~3ToIntersectVec）、もう一方のベクトル、の順番で外積を求める<strong>cross1~3</strong>。そして、それぞれ正規化しておく。</p>
+<br>
+<img src = "images/三角形の中にあるか3.jpg" ald = "三角形の中にあるか" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>cross1とcorss2の内積<strong>dot1</strong>、cross1とcross2の内積<strong>dot2</strong>を求める。dot1とdot2が<em>両方正の値だったら</em>交点が三角形の中にあるため、レイと三角形ポリゴンが交差している。</p>
+<ul>
+<li>交点が三角形の中にあるときは三つの外積の値cross1~3がどれも同じ方向になる。</li>
+</ul>
+<br>
+<img src = "images/三角形の中にあるか4.jpg" ald = "三角形の中にあるか" width = "768" height = "432">
+<br>
+<img src = "images/三角形の中にあるか5.jpg" ald = "三角形の中にあるか" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>「メッシュの三角形ポリゴン全てに1~3の処理を行う。その中で、複数の交差点が存在したら、レイの始点から一番近い座標を交差点とする。」</strong></p>
+<ul>
+<li>レイと三角形ポリゴンが複数交差している場合があるので、今回の場合ではレイの始点から一番近い座標を交差点とする。</li>
+</ul>
+</li>
+<li>
+<p><strong>「交差点が存在しなければ、交差していない。」</strong></p>
+<ul>
+<li>三角形ポリゴン全てを調べて、どれともレイが交差していなければ、このメッシュとレイは交差していない。</li>
+</ul>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="43-obb%E5%90%8C%E5%A3%AB%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A">4.3. OBB同士の当たり判定</h2>
+<ul>
+<li>OBB同士の当たり判定では <a href="http://marupeke296.com/COL_3D_No13_OBBvsOBB.html" title="OBBとOBBの衝突">OBBとOBBの衝突</a> のサイトを参考にした。</li>
+<li>OBBとは<strong>Oriented Bounding Box</strong>(oriented:指向性の、方向づけられた)のことで、簡単に言うと回転できるAABB。</li>
+<li>OBB同士の当たり判定は、いろんな直線（分離軸）に二つのOBBの形を射影して、一つ一つ重なっていないか調べていくことで判定する。</li>
+<li>以下の処理手順で行う。</li>
+</ul>
+<ol>
+<li>分離軸を探す。</li>
+<li>分離軸に二つのOBBを射影して射影線分を作る。</li>
+<li>二つの射影線分が重なっていないか調べる。</li>
+<li>1~3の処理を全ての分離軸で調べる。重なっていない射影線分が一つでもあれば衝突していないので処理を抜ける。</li>
+<li>全ての分離軸で重なっていたら衝突している。</li>
+</ol>
+<p>それぞれ手順を詳しくみていく。</p>
+<ol>
+<li>
+<p><strong>「分離軸を探す。」</strong></p>
+<ul>
+<li>
+<p>3D空間のOBBの分離軸は、片方のOBBの単位方向ベクトル3本、他方のOBBの単位方向ベクトル3本、双方の単位方向ベクトルに垂直な分離軸3x3=9本の計15本が必要になる。</p>
+</li>
+<li>
+<p>双方の単位方向ベクトルに垂直な分離軸は双方の単位方向ベクトルの外積で求めることができる（その後正規化する）。</p>
+ <br>
+ <img src = "images/OBB同士の当たり判定1.jpg" ald = "OBB同士の当たり判定" width = "768" height = "432">
+ <br>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>「分離軸に二つのOBBを射影して射影線分を作る。」</strong></p>
+<ul>
+<li>
+<p>分離軸は単位ベクトルなので、ベクトルと内積を取ると射影線分を求めることができる。だから分離軸と、OBBのそれぞれ大きさ付の方向ベクトルのとの内積の絶対値を合計すると射影線分の半分の長さが求まる。</p>
+</li>
+<li>
+<p>分離軸が自身の単位方向ベクトルの時は、大きさ付の方向ベクトルの大きさがそのまま射影線分の半分の長さとなる。</p>
+ <br>
+ <img src = "images/OBB同士の当たり判定2.jpg" ald = "OBB同士の当たり判定" width = "768" height = "432">
+ <br>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>「二つの射影線分が重なっていないか調べる。」</strong></p>
+<ul>
+<li>
+<p>OBB同士の中心点の距離が、双方の射影線分の半分の長さの和より大きいときは、重なっていないので衝突していない。</p>
+</li>
+<li>
+<p>OBB同士の中心点の距離が、双方の射影線分の半分の長さの和より小さいときは、重なっているので、この分離軸では衝突している。</p>
+<br>
+<img src = "images/OBB同士の当たり判定3.jpg" ald = "OBB同士の当たり判定" width = "768" height = "432">
+<br>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>「1~3の処理を全ての分離軸で調べる。重なっていない射影線分が一つでもあれば衝突していないので処理を抜ける。」</strong></p>
+<ul>
+<li>15本の分離軸全てで1~3の処理を行い、どこからみても確実に衝突しているか調べる。</li>
+<li>途中で、射影線分が重なっていない場合、つまり、OBB同士の中心点の距離が、双方の射影線分の半分の長さの和より大きいときがあれば確実に衝突していないので、処理を抜ける。</li>
+</ul>
+</li>
+<li>
+<p><strong>「全ての分離軸で重なっていたら衝突している。」</strong></p>
+<ul>
+<li>どこからみても射影線分が重なっているので、このOBB同士は衝突していると確定する。</li>
+</ul>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="44-%E3%83%AC%E3%83%99%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">4.4. レベルデータの読み込み</h2>
+<ul>
+<li>レベルデータとは、モデリングソフト上で配置したモデル達の名前や座標などが保存されたデータのこと。学校から、3ds MAXで配置したレベルデータをtklファイルとして出力するエクスポーターが提供されている。</li>
+<li>レベルデータを使用すると、デフォルトの処理では、モデリングソフト上で配置された通りの場所に、モデルと静的物理オブジェクトが生成される。</li>
+<li>こと時フック関数が指定されていたら、その関数を呼び出す。</li>
+</ul>
+<p>このtklファイルを以下の処理手順で読み込んでいく。</p>
+<ol>
+<li>tklファイルを読み込む。</li>
+<li>読み込んだオブジェクト達のデータの、オブジェクト一つずつ取り出してデータを見ていく。</li>
+<li>オブジェクトの座標、回転、拡大率、オブジェクトネーム、のデータを取得する。</li>
+<li>このときフック関数が指定されている時はフック関数を呼び出す。このときフック関数の引数に、取り出したオブジェクトのデータを渡す。</li>
+<li>フック関数が指定されていない時、またはフック関数の戻り値がfalseだった場合、デフォルトの処理を行う。</li>
+<li>デフォルトの処理
+<ol>
+<li>モデルデータのアセットを入れておくディレクトリから、オブジェクトネームと同じ名前のモデルを生成する。モデルがなかったらエラーを出す。</li>
+<li>モデルが生成できたら、静的物理オブジェクトをオブジェクトのメッシュの形から生成する。</li>
+</ol>
+</li>
+<li>全てのオブジェクトデータ分、2～6を繰り返す。</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="45-%E3%83%AF%E3%82%A4%E3%83%97">4.5. ワイプ</h2>
+<p> レベル遷移時に急に場面が切り替わるのではなく、ワイプで画像を表示してから、見えないように画像の後ろでレベル遷移を行うようにしている。ワイプの種類は以下の5種類あり、ランダムでワイプするようになっている。</p>
+<ol>
+<li>
+<p>リニアワイプ</p>
+   <br>
+   <img src = "images/normalWipe.png" ald = "リニアワイプ" width = "768" height = "432">
+   <br>
+<ol>
+<li>
+<p>リニアワイプでは、CUP側（C++）とGPU側（HLSL）の両方の処理で行う。</p>
+</li>
+<li>
+<p>CPU側では、現在どのくらいワイプしているかの変数<strong>wipeSize</strong>、ワイプする方向<strong>wipeDir</strong>を用意し、GPUに渡すようにする。</p>
+</li>
+<li>
+<p>wipeSizeを毎フレーム加算することでワイプを進める。</p>
+</li>
+<li>
+<p>GPU側では、wipeDirと描画するピクセル座標の内積をとり、wipeDirに射影したピクセル座標の長さ<strong>wipeProjLen</strong>を求める。</p>
+<br>
+<img src = "images/リニアワイプ1.jpg" ald = "リニアワイプ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>wipeProjLenがwipeSizeより大きかったら通常の描画をして、小さかったらワイプ用のスプライトを描画する。</p>
+<br>
+<img src = "images/リニアワイプ2.jpg" ald = "リニアワイプ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p>円形ワイプ</p>
+ <br>
+ <img src = "images/円形ワイプ1.png" ald = "円形ワイプ" width = "768" height = "432">
+ <br>
+<ol>
+<li>
+<p>円形ワイプでは、CUP側で、現在どのくらいワイプしているかの変数<strong>wipeSize</strong>を用意し、GPUに渡すようにする。</p>
+</li>
+<li>
+<p>wipeSizeを毎フレーム加算することでワイプを進める。</p>
+</li>
+<li>
+<p>GPU側では、画面中央からピクセル座標への距離<strong>posFromCenter</strong>を求める。</p>
+</li>
+<li>
+<p>posFromCenterがwipeSizeより大きかったら通常の描画をして、小さかったらワイプ用のスプライトを描画する。</p>
+<br>
+<img src = "images/円形ワイプ2.jpg" ald = "円形ワイプ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p>縦縞ワイプ</p>
+ <br>
+ <img src = "images/縦縞ワイプ1.png" ald = "縦縞ワイプ" width = "768" height = "432">
+ <br>
+<ol>
+<li>
+<p>縦縞ワイプでは、CUP側で、現在どのくらいワイプしているかの変数<strong>wipeSize</strong>を用意し、GPUに渡すようにする。</p>
+</li>
+<li>
+<p>wipeSizeを毎フレーム加算することでワイプを進める.</p>
+</li>
+<li>
+<p>GPU側では、画面の横幅 / 分割したい数 で分割された一つ分の横幅<strong>divideLength</strong>を求める。</p>
+</li>
+<li>
+<p>ピクセル座標のX座標をdivideLengthで割った余り<strong>dividedPos</strong>を求める。これによって画面を縦に分割することができる。</p>
+<br>
+<img src = "images/縦縞ワイプ2.jpg" ald = "縦縞ワイプ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>dividedPosがwipeSizeより大きかったら通常の描画をして、小さかったらワイプ用のスプライトを描画する。</p>
+<br>
+<img src = "images/縦縞ワイプ3.jpg" ald = "縦縞ワイプ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p>横縞ワイプ</p>
+ <br>
+ <img src = "images/横縞ワイプ1.jpg" ald = "横縞ワイプ" width = "768" height = "432">
+ <br>
+<ol>
+<li>
+<p>先ほどの縦縞ワイプとほぼ同じ。横縞ワイプではCUP側で、現在どのくらいワイプしているかの変数<strong>wipeSize</strong>を用意し、GPUに渡すようにする。</p>
+</li>
+<li>
+<p>wipeSizeを毎フレーム加算することでワイプを進める.</p>
+</li>
+<li>
+<p>GPU側では、画面の縦幅 / 分割したい数 で分割された一つ分の縦幅<strong>divideLength</strong>を求める。</p>
+</li>
+<li>
+<p>ピクセル座標のY座標をdivideLengthで割った余り<strong>dividedPos</strong>を求める。これによって画面を横に分割できる。</p>
+<br>
+<img src = "images/横縞ワイプ2.jpg" ald = "横縞ワイプ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>dividedPosがwipeSizeより大きかったら通常の描画をして、小さかったらワイプ用のスプライトを描画する。</p>
+<br>
+<img src = "images/横縞ワイプ3.jpg" ald = "横縞ワイプ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+<li>
+<p>チェッカーボードワイプ</p>
+ <br>
+ <img src = "images/チェッカーボードワイプ1.jpg" ald = "チェッカーボードワイプ" width = "768" height = "432">
+ <br>
+<ol>
+<li>
+<p>縦縞と横縞のワイプを合わせたワイプ。チェッカーボードワイプではCUP側で、現在どのくらいワイプしているかの変数<strong>wipeSize</strong>を用意し、GPUに渡すようにする。</p>
+</li>
+<li>
+<p>wipeSizeを毎フレーム加算することでワイプを進める.</p>
+</li>
+<li>
+<p>GPU側では、画面の横幅 / 分割したい数 で分割された一つ分の横幅<strong>divideLengthX</strong>と、画面の縦幅 / 分割したい数 で分割された一つ分の縦幅<strong>divideLengthY</strong>を求める。</p>
+</li>
+<li>
+<p>まずは、縦分割から考えていく。ピクセル座標のY座標をdivideLengthYで割って、ピクセル座標が偶数段目にいるのか奇数段目にいるのか調べる。</p>
+<br>
+<img src = "images/チェッカーボードワイプ2.jpg" ald = "チェッカーボードワイプ" width = "768" height = "432">
+<br>
+</li>
+<li>
+<p>次に、横分割を考える。偶数段目の時は普通の縦縞ワイプと同じようにする。奇数段目の時は、ピクセル座標のX座標をdivideLengthXの半分ずらして縦縞ワイプをさせる。</p>
+<br>
+<img src = "images/チェッカーボードワイプ3.jpg" ald = "チェッカーボードワイプ" width = "768" height = "432">
+<br>
+</li>
+</ol>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="46-%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E3%83%9E%E3%83%83%E3%83%97%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9">4.6. キューブマップスカイボックス</h2>
+<p> このゲームでは空の表現にキューブマップスカイボックスを使用している。キューブマップスカイボックスとは、空用の球体のモデルのピクセルカラーを、球体の法線の先にあるキューブマップのカラーにする、というものである。詳しい手順は以下の通りである。</p>
+<ol>
+<li>
+<p>キューブマップを用意する。キューブマップとは下の画像のように立方体の展開図のような形をした画像である。</p>
+ <br>
+ <img src = "images/キューブマップ.jpg" ald = "キューブマップ" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>空用の球体のモデルのシェーダーリソースビューにキューブマップを登録する。この時D3D12_SHADER_RESOURCE_VIEW_DESCのViewDimensionをD3D12_SRV_DIMENSION_TEXTURECUBEにしなくてはいけない。</p>
+</li>
+<li>
+<p>GPU側では、TextureCubeの型でキューブマップを受取って、球の法線を使ってサンプリングする。球の法線の先にあるキューブマップのテクスチャのカラーがそのピクセルのカラーになる。</p>
+ <br>
+ <img src = "images/キューブマップスカイボックス.jpg" ald = "キューブマップ" width = "768" height = "432">
+ <br>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="47-%E5%B7%9D%E7%80%AC%E5%BC%8F%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">4.7. 川瀬式ブルーム</h2>
+<p> ポストエフェクトの一つであるブルームを、川瀬正樹氏が発表した川瀬式ブルームを使用して実装した。<br>
+ 普通のブルームはレンダリング後の画面から輝度抽出し、明るい部分にガウシアンブラーをかけて、もとの画面に加算合成するものだ。しかし、このやり方だとある程度明るい光は全て同じ半径のブルームになってしまう。<br>
+ 一方、川瀬式ブルームはダウンサンプリングしながら複数回ガウシアンブラーをかけ、それらを平均化したものを元の画面に加算合成する。これにより大きい光はより大きい半径のブルームがかかるようになる。<br>
+ 詳しい手順は以下の通りである。</p>
+<ol>
+<li>
+<p>モデルなどを全てレンダリングする。</p>
+ <br>
+ <img src = "images/ブルーム1.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>レンダリング後の画面から輝度抽出をする。</p>
+ <br>
+ <img src = "images/ブルーム2.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>輝度抽出したテクスチャをダウンサンプリングして、ガウシアンブラーをかけボケ画像を作る。ダウンサンプリングすると解像度が低くなるため、ガウシアンブラーの処理が軽くなる。（1280×720 -&gt; 640×360）</p>
+ <br>
+ <img src = "images/ブルーム4.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>3.で作ったボケ画像を、さらにダウンサンプリングしてガウシアンブラーをかける。（640x360 -&gt; 320x180）</p>
+ <br>
+ <img src = "images/ブルーム6.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>4.で作ったボケ画像を、さらにダウンサンプリングしてガウシアンブラーをかける。（320x180 -&gt; 160x90）</p>
+ <br>
+ <img src = "images/ブルーム8.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>5.で作ったボケ画像を、さらにダウンサンプリングしてガウシアンブラーをかける。（160x90 -&gt; 80x45）</p>
+ <br>
+ <img src = "images/ブルーム10.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>出来上がった四つのボケ画像を同じ解像度になるように拡大し、加算合成したあと平均を取り、それを描画する。</p>
+ <br>
+ <img src = "images/ブルーム11.jpg" ald = "ブルーム" width = "768" height = "432">
+ <br>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="48-vsm%E5%88%86%E6%95%A3%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6%E3%83%9E%E3%83%83%E3%83%97">4.8. VSM（分散シャドウマップ）</h2>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="49-%E3%82%A2%E3%82%A6%E3%83%88%E3%83%A9%E3%82%A4%E3%83%B3%E6%8F%8F%E7%94%BB">4.9. アウトライン描画</h2>
+<p> このゲームはポップな世界観のため、それを表現するためにシェーダーでモデルにアウトラインを描画するようにした。<br></p>
+<p>▼アウトライン描画あり</p>
+   <br>
+   <img src = "images/アウトライン描画あり.jpg" ald = "アウトライン描画" width = "768" height = "432">
+   <br>
+<p>▼アウトライン描画なし</p>
+   <br>
+   <img src = "images/アウトライン描画なし.jpg" ald = "アウトライン描画" width = "768" height = "432">
+   <br>
+<p>描画するテクセルと近傍8テクセルの深度値や法線のデータを比べて、差が一定以上ある時はアウトラインを描画する。詳しい手順は以下の通りである。</p>
+<ol>
+<li>
+<p>モデルのプロジェクション空間での深度値と、法線をテクスチャに描き込む。</p>
+</li>
+<li>
+<p>モデルを描画するときに1.で作ったテクスチャをデータを持ってくる。</p>
+</li>
+<li>
+<p>今から描画するテクセルの深度値と、近傍8テクセルの深度値の平均、この二つの差の絶対値が一定以上ならアウトラインを描画する。</p>
+ <br>
+ <img src = "images/アウトライン描画1.jpg" ald = "アウトライン描画" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>また、深度値だけだとモデルの凹凸のアウトラインが、深度値の差が小さすぎるため、描画されない。</p>
+ <br>
+ <img src = "images/アウトライン描画2.jpg" ald = "アウトライン描画" width = "768" height = "432">
+ <br>
+<p>そのため今から描画するテクセルの法線と、近傍8テクセルのそれぞれの法線とのどれかの内積が一定以下だったらアウトラインを描画する</p>
+ <br>
+ <img src = "images/アウトライン描画3.jpg" ald = "アウトライン描画" width = "768" height = "432">
+ <br>
+</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<h2 id="410-%E3%83%AA%E3%83%A0%E3%83%A9%E3%82%A4%E3%83%88%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%81%93%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E5%B0%82%E7%94%A8%E3%81%AE%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">4.10. リムライトを使ったこのゲーム専用のシェーディング</h2>
+<p> このゲームの世界観に合うように、シェーディングはリムライトの仕組みを利用して行っている。通常のリムライトとは違いライトの位置や方向は考慮せず、常にカメラから見た時のモデルの輪郭部分の光が強いようにしている。その光はキューブマップを利用して、空のカラーの光が少し映り込むようにしている。<br>
+詳しい手順は以下の通りである。</p>
+<ol>
+<li>アルベドカラーをサンプリングしてカラーを持ってくる。</li>
+<li>空のキューブマップを、モデルの法線を使ってサンプリングしてカラーを持ってくる。</li>
+<li>以下の式を使ってリムライトの強さを求める。</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">float</span> limPower = <span class="hljs-built_in">pow</span>( <span class="hljs-number">1.0f</span> - <span class="hljs-built_in">abs</span>(viewNormal.z), <span class="hljs-number">5.0f</span> );
+</div></code></pre>
+<p>1.0f - abs(viewNormal.z)で、カメラ空間での法線のZ成分の絶対値が大きいほど0.0fに、小さいほど1.0fに近づく値になる。その値をpowを使って光の強さを調節している。</p>
+<ol start="4">
+<li>キューブマップから持ってきたカラーに、今計算したlimPowerを掛ける。これで輪郭部分に近づくほど空のカラーが強く映り込むようになる。</li>
+<li>アルベドカラーに4.の値を足して最終的なカラーにする。</li>
+</ol>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+<hr>
+<h1 id="5-%E3%82%B2%E3%83%BC%E3%83%A0%E7%9A%84%E3%81%AB%E3%81%93%E3%81%A0%E3%82%8F%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D">5. ゲーム的にこだわったところ</h1>
+<h2 id="51-%E9%80%8F%E6%98%8E%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E8%A1%A8%E7%8F%BE">5.1 透明アイテムの表現</h2>
+<p> スイッチを押すまで触ることのできない透明アイテム。その透明アイテムの表現をただモデルを半透明にして描画するのではなく、モデルを透明にし、アウトラインのみ描画した後、そのアウトラインを更にディザリングすることでユニークな表現にした。</p>
+<br>
+<img src = "images/透明アイテム_アップ.jpg" ald = "透明アイテム" width = "768" height = "432">
+<br>
+<h2 id="52-%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E8%BC%AA%E3%81%AE%E4%B8%8A%E3%81%A7%E3%81%AE%E7%A7%BB%E5%8B%95%E4%BB%A5%E5%A4%96%E3%81%AE%E5%8B%95%E3%81%8D">5.2 メビウスの輪の上での移動以外の動き</h2>
+<ul>
+<li>
+<p>プレイヤーが炎と衝突した時、後方に飛び上がってから重力にしたがって落ちるような動きを入れている。</p>
+ <br>
+ <img src = "images/炎衝突.jpg" ald = "炎衝突" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>アイテムを投げるときそのまま真下に投げると床を貫通してしまうため、手前側から回り込んで床の向こう側に行く。</p>
+ <br>
+ <img src = "images/アイテム投げ.jpg" ald = "アイテム投げ" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>アイテムをその場において、他のアイテムと重なってしまったとき、重なりを解決するために、アイテムがクルクル回りながら横に弾かれる動きをする。</p>
+ <br>
+ <img src = "images/アイテム重なり.jpg" ald = "アイテム重なり" width = "768" height = "432">
+ <br>
+</li>
+</ul>
+<h2 id="53-%E5%A4%9A%E5%BD%A9%E3%81%AA%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF">5.3 多彩なギミック</h2>
+<ul>
+<li>
+<p><strong>炎</strong>：プレイヤーを通さない。水を三回当てると消火できる。</p>
+ <br>
+ <img src = "images/炎.jpg" ald = "炎" width = "740" height = "636">
+ <br>
+</li>
+<li>
+<p><strong>壁</strong>：プレイヤーを通さない。稼働を当てると壁が動き出す。</p>
+ <br>
+ <img src = "images/壁.jpg" ald = "壁" width = "740" height = "730">
+ <br>
+</li>
+<li>
+<p><strong>全反転魔方陣</strong>：通過すると、ステージにある全てのアイテムの性質が反転する。</p>
+ <br>
+ <img src = "images/全反転魔方陣.jpg" ald = "全反転魔方陣" width = "740" height = "620">
+ <br>
+</li>
+<li>
+<p><strong>スイッチと透明アイテム</strong>：スイッチを押すと透明アイテムが実体化し、触れることができるようになる。一定時間で透明に戻り、元の位置に戻る。</p>
+ <br>
+ <img src = "images/スイッチと透明アイテム.jpg" ald = "スイッチと透明アイテム" width = "740" height = "760">
+ <br>
+</li>
+</ul>
+<div style="text-align: right;">
+<br>
+<p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
+</div>
+
+</body>
+</html>
