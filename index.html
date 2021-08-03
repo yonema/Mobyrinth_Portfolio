@@ -515,7 +515,7 @@ code {
 <ul>
 <li>cppファイル
 <ul>
-<li>Bloom（参考資料あり）</li>
+<li>Bloom</li>
 <li>CapacityUI</li>
 <li>DirectionLight</li>
 <li>FontRender</li>
@@ -533,7 +533,7 @@ code {
 <li>Mobius</li>
 <li>ModelRender</li>
 <li>MyCharacterController</li>
-<li>OBB（参考資料あり）</li>
+<li>OBB</li>
 <li>OBBWorld</li>
 <li>ObstacleObject</li>
 <li>OObox</li>
@@ -1224,7 +1224,132 @@ code {
 <p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
 </div>
 <h2 id="68-vsm%E5%88%86%E6%95%A3%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6%E3%83%9E%E3%83%83%E3%83%97">6.8. VSM（分散シャドウマップ）</h2>
-<p> 分散シャドウマップとは、深度値のグループごとの局所的な分散</p>
+<p> VSM、分散シャドウマップとは、深度値のグループごとの局所的な分散を利用するソフトシャドウの一種である。深度値の局所的な分散が大きい場合、そのグループ内の深度値の幅が大きいということであり、つまり、影の境界線であることがわかる。影の境界線はジャギーが発生しやすいため、影を薄くするという手法。<br></p>
+<p>▼グループごとに分けたシャドウマップ
+<br>
+<img src = "images/VSM1.jpg" ald = "VSM" width = "512" height = "512">
+<br></p>
+<p>▼分散が大きいグループが影の境界線になる
+<br>
+<img src = "images/VSM2.jpg" ald = "VSM" width = "512" height = "480">
+<br></p>
+<p>詳しい手順は以下の通りである。</p>
+<ol>
+<li>
+<p>まず、シャドウマップを描画する。シャドウマップには<strong>深度値</strong>（ライトからピクセルまでの距離）と<strong>深度値の二乗</strong>を描き込む。深度値の二乗は分散を計算するときに使用する。</p>
+ <br>
+ <img src = "images/VSM3.jpg" ald = "VSM" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>シャドウマップをダウンサンプリングしながらガウシアンブラーを掛けて、ブロックごとのおおよその平均値を求める。これで局所的な<strong>深度値の平均値</strong>と、<strong>深度値の二乗の平均値</strong>を求めることができる。</p>
+</li>
+<li>
+<p>ガウシアンブラーを掛けたテクスチャをシャドウマップとして、シャドウレシーバーのシェーダーリソースビューに登録する。</p>
+</li>
+<li>
+<p>シャドウレシーバーで影の計算をする。</p>
+</li>
+<li>
+<p>ピクセル座標をライトビュースクリーン空間からUV空間に変換して、UV空間の座標がXとYそれぞれ0.0f～1.0fの値におさまっているか調べる。範囲外の影は落とせない。（VSMの機能ではないため詳しい説明は割愛）</p>
+</li>
+<li>
+<p>ライトビュースクリーン空間でのZ値がシャドウマップに描かれている深度値より大きかったら、ピクセルとライトの間に遮蔽物があるということになり、影を描画する。（デプスシャドウの機能。VSMの機能ではないため詳しい説明は割愛）</p>
+</li>
+<li>
+<p>チェビシェフの不等式を使ってピクセルに光が届く確率を求める。まずは深度値の分散を求める。分散は「<strong>二乗の平均 - 平均の二乗</strong>」で計算できる。二乗の平均は、シャドウマップにすでに「深度値の二乗の平均値」が描かれている。平均の二乗は、シャドウマップの「深度値の平均値」を二乗することで求まる。二つの値の差で求めた分散の値を<strong>variance</strong>とする。</p>
+ <br>
+ <img src = "images/VSM4.jpg" ald = "VSM" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>ライトを遮っている座標から影までの距離を出すために、ライトビュースクリーン空間でのZ値からシャドウマップに描かれている「深度値の平均値」引いた値を求めて<strong>md</strong>とする。</p>
+ <br>
+ <img src = "images/VSM5.jpg" ald = "VSM" width = "768" height = "432">
+ <br>
+</li>
+<li>
+<p>varianceとmdの値を利用して光が届く確率<strong>lit_factor</strong>を計算する。計算式は以下の通りである。</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>  <span class="hljs-keyword">float</span> lit_factor = variance / (variance + md * md);
+</div></code></pre>
+<p>varianceとmdとlit_factorの関係性は以下の通りである。<br></p>
+<p>▼ <strong>variance</strong>と<strong>fit_factor</strong>の関係の表。（mdは0.5で固定）</p>
+<table>
+<thead>
+<tr>
+<th>variance<br>分散</th>
+<th>variance / (variance + md * md)<br>計算式</th>
+<th>lit_factor<br>光が届く確率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>0.1 / (0.1 + 0.5 * 0.5)</td>
+<td>0.285714</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>0.5 / (0.5 + 0.5 * 0.5)</td>
+<td>0.666667</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>1.0 / (1.0 + 0.5 * 0.5)</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>3.0 / (3.0 + 0.5 * 0.5)</td>
+<td>0.923077</td>
+</tr>
+</tbody>
+</table>
+<p><br>▼ <strong>variance</strong>と<strong>fit_factor</strong>の関係のグラフ。（mdは0.5で固定）
+<br>
+<img src = "images/VSM6.jpg" ald = "VSM" width = "768" height = "432">
+<br></p>
+<p>▼ <strong>md</strong>と<strong>fit_factor</strong>の関係の表。（varianceは0.5で固定）</p>
+<table>
+<thead>
+<tr>
+<th>md</th>
+<th>variance / (variance + md * md)<br>計算式</th>
+<th>lit_factor<br>光が届く確率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>0.5 / (0.5 + 0.1 * 0.1)</td>
+<td>0.980392</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>0.5 / (0.5 + 0.5 * 0.5)</td>
+<td>0.666667</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>0.5 / (0.5 + 1.0 * 1.0)</td>
+<td>0.333333</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>0.5 / (0.5 + 3.0 * 3.0)</td>
+<td>0.0526316</td>
+</tr>
+</tbody>
+</table>
+<p><br>▼ <strong>md</strong>と<strong>fit_factor</strong>の関係のグラフ。（varianceは0.5で固定）
+<br>
+<img src = "images/VSM7.jpg" ald = "VSM" width = "768" height = "432">
+<br></p>
+<p>variance（分散）が大きくなるとlit_factor（光が届く確率）が増大し、mdが大きくなるとlit_factorが減少する。<br>
+つまり、varianceが大きいほど影が薄くなり、小さいほど影が濃くなる。<br>
+そして、mdが大きいほど影が濃くなり、小さいほど影が薄くなる。</p>
 <div style="text-align: right;">
 <br>
 <p><a href="#%E7%9B%AE%E6%AC%A1">目次へ</a></p>
