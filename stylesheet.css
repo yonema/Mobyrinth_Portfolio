@@ -1,0 +1,78 @@
+:root
+{
+    /* 
+    タイトル画像のサイズ
+    1980 * 0.4 = 792
+    1080 * 0.4 = 432
+     */
+    --kTitleImageWidth: 792px;
+    --kTitleImageHeight: 432px;
+
+    /* 
+    タイトル画像のサイズ
+    1980 * 0.3 = 594
+    1080 * 0.3 = 324
+     */
+     --kNormalImageWidth: 594px;
+     --kNormalImageHeight: 324px;
+}
+
+body
+{
+    background-image: url(images/background.png);
+    background-attachment: fixed;
+    background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/* タイトル画像のスタイル */
+.titleImage
+{ 
+    width: var(--kTitleImageWidth);
+    height: var(--kTitleImageHeight);
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.6);
+}
+
+.simpleFrame
+{
+    padding: 11px;
+    background-color: #fff;
+    box-shadow: 0 3px 18px -4px rbga(0,0,0,0.8);
+}
+
+/* 通常の画像のスタイル */
+.normalImage
+{ 
+    width: var(--kNormalImageWidth);
+    height: var(--kNormalImageHeight);
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.6);
+    /*
+    padding: 11px;
+    background-color: #fff;
+    box-shadow: 0 3px 18px -4px rbga(0,0,0,0.8);*/
+}
+
+/* 「目次へ」のスタイル */
+.goToIndexText
+{
+    text-align: right;
+}
+
+
+/* <チートシート>
+------------------------------------------------------------------------ */
+.right
+{
+    text-align: right;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.border
+{
+    border: 3px solid #ddd;
+}
